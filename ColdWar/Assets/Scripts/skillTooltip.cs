@@ -86,6 +86,10 @@ public class skillTooltip : MonoBehaviour
                 skillDamagePlace.text = skillHeld.attackCount * BattleManager.instance.activeUnit.mainWeapon.shoots + "x" + (int)(skillHeld.damageMultiplayer * BattleManager.instance.activeUnit.mainWeapon.damage);
             skillAccuracyPlace.text = " " + (int)(skillHeld.accuracyMultiplayer * battleManager.activeUnit.mainWeapon.weaponAccuracyBonus + battleManager.activeUnit.accuracy) + " ";
             skillAmmoCostPlace.text = skillHeld.attackCount * BattleManager.instance.activeUnit.mainWeapon.shoots + " "; break;
+            case skillType.attackRow:
+                skillDamagePlace.text = skillHeld.attackCount * BattleManager.instance.activeUnit.mainWeapon.shoots + "x" + (int)(skillHeld.damageMultiplayer * BattleManager.instance.activeUnit.mainWeapon.damage);
+                skillAccuracyPlace.text = " " + (int)(skillHeld.accuracyMultiplayer * battleManager.activeUnit.mainWeapon.weaponAccuracyBonus + battleManager.activeUnit.accuracy) + " ";
+                skillAmmoCostPlace.text = skillHeld.attackCount * BattleManager.instance.activeUnit.mainWeapon.shoots + " "; break;
             case skillType.selfBuff:
                 skillDamagePlace.text = skillHeld.buffedStat;
                 skillAmmoCostPlace.text = (skillHeld.buffMultiplayer - 1f) * 10 + "% " + skillHeld.buffLasting + " turns"; break;
@@ -112,28 +116,27 @@ public class skillTooltip : MonoBehaviour
         StartCoroutine(hide());
     }
 
-    public void executeSkill(int targetID)
-    {
-        //Debug.Log(((skillHeld.damageMultiplayer * battleManager.activeUnit.mainWeapon.damage) * (battleManager.activeUnit.mainWeapon.shoots * skillHeld.attackCount)));
-
-        for(int i=0;i<battleManager.engagedUnits.Capacity;i++)
-        {
-            //Debug.Log("ichi");
-            if(battleManager.engagedUnits[i].position.Equals(battleManager.subPanels[targetID].GetComponent<TargetingPanel>().position))
-            {
-                //Debug.Log("ni");
-                attackSkill(battleManager.activeUnit,battleManager.engagedUnits[i],skillHeld);
-            }
-        }
-    }
-
-    public void attackSkill(Unit user ,Unit target, Skill skillUsed)
+    public void executeSkill(Unit user, Unit target, TargetingPanel panel)
     {
         if (user.actionsLeft < skillHeld.actionCost)
         {
-            Debug.Log("Lack of aaction points!");
+            Debug.Log("Lack of action points!");
             return;
         }
+
+        switch (skillHeld.type)
+        {
+            case skillType.attack: attackSkill(user, target, skillHeld, panel.transform.position); break;
+            case skillType.attackRow: attackRowSkill(user, target, skillHeld, panel.transform.position); break;
+        }
+        
+        //Debug.Log(skillHeld.actionCost);
+        battleManager.comsumeActionPoints(skillHeld.actionCost);
+        battleManager.actionBipsControl();
+    }
+
+    public void attackSkill(Unit user ,Unit target, Skill skillUsed, Vector2 position)
+    {
 
         float oneShootDamage = (skillUsed.damageMultiplayer * user.mainWeapon.damage) - target.armor.armorBonus;
         float attacksCount = skillUsed.attackCount * user.mainWeapon.shoots;
@@ -160,15 +163,89 @@ public class skillTooltip : MonoBehaviour
         target.HP -= (int)damageDealed;
         if(damageDealed == 0)
         {
-            Debug.Log("MISS!");
+            //Debug.Log("MISS!");
+            battleManager.damageEffect("MISS!", position);
         }
         else
         {
-            Debug.Log(damageDealed);
+            //Debug.Log(damageDealed);
+            battleManager.damageEffect(damageDealed.ToString(), position);
         }
-        //Debug.Log(skillHeld.actionCost);
-        battleManager.comsumeActionPoints(skillHeld.actionCost);
-        battleManager.actionBipsControl();
+        battleManager.ammoCounters[0].updateCounter(battleManager.activeUnit);
+        battleManager.killCheck(target);
+        //Debug.Log(user.mainWeaponAmmo);
+    }
+
+    public void attackRowSkill(Unit user, Unit target, Skill skillUsed, Vector2 position)
+    {
+        Unit secondTarget = null;
+        for (int i = 0; i < battleManager.engagedUnits.Capacity; i++)
+        {
+            //Debug.Log("ichi");
+            if (battleManager.engagedUnits[i].position.y == target.position.y && battleManager.engagedUnits[i].position.x != target.position.x)
+            {
+                Debug.Log("Sec");
+                secondTarget = battleManager.engagedUnits[i];
+            }
+        }
+
+        float oneShootDamage = (skillUsed.damageMultiplayer * user.mainWeapon.damage) - target.armor.armorBonus;
+        float attacksCount = skillUsed.attackCount * user.mainWeapon.shoots;
+        float accuracy = skillUsed.accuracyMultiplayer * (user.accuracy + user.mainWeapon.weaponAccuracyBonus);
+        float targetDogde = target.evasion + target.armor.dogdeBonus;
+        float targetDogdeSecond = 0;
+        if (secondTarget != null)
+            targetDogdeSecond = secondTarget.evasion + secondTarget.armor.dogdeBonus;
+        float damageDealed = 0;
+        float damageDealedSecond = 0;
+
+        if (user.mainWeaponAmmo < attacksCount)
+        {
+            Debug.Log("Lack of ammunition!");
+            return;
+        }
+        //Debug.Log("Max Damage " + oneShootDamage * attacksCount);
+        for (int i = 0; i < attacksCount; i++)
+        {
+            if (i + 1 < attacksCount && secondTarget != null)
+            {
+                Debug.Log("Halo");
+                if (Random.Range(0, accuracy + targetDogde) <= accuracy)
+                {
+                    damageDealed += oneShootDamage;
+                }
+                user.mainWeaponAmmo--;
+                if (Random.Range(0, accuracy + targetDogdeSecond) <= accuracy)
+                {
+                    damageDealedSecond += oneShootDamage;
+                }
+                user.mainWeaponAmmo--;
+            }
+            else if(i < attacksCount)
+            {
+                if (Random.Range(0, accuracy + targetDogde) <= accuracy)
+                {
+                    damageDealed += oneShootDamage;
+                }
+                user.mainWeaponAmmo--;
+            }
+        }
+        //Debug.Log("Damage deaded " + damageDealed);
+        target.HP -= (int)damageDealed;
+        if(secondTarget != null)
+        {
+            secondTarget.HP -= (int)damageDealed;
+        }
+        //if (damageDealed == 0)
+        //{
+        //    //Debug.Log("MISS!");
+        //    battleManager.damageEffect("MISS!");
+        //}
+        //else
+        //{
+        //    //Debug.Log(damageDealed);
+        //    battleManager.damageEffect(damageDealed.ToString());
+        //}
         battleManager.ammoCounters[0].updateCounter(battleManager.activeUnit);
         battleManager.killCheck(target);
         //Debug.Log(user.mainWeaponAmmo);

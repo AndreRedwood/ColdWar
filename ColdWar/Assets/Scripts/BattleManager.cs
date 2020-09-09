@@ -35,6 +35,8 @@ public class BattleManager : MonoBehaviour
 
     public GameObject panel;
     public GameObject[] subPanels;
+    public skillTooltip selectedSkill;
+    public TextMeshProUGUI damageText;
 
     public GameObject gameOverPanel;
     public GameObject winPanel;
@@ -150,7 +152,7 @@ public class BattleManager : MonoBehaviour
         if (activeUnit.mainWeapon != null)
         {
             itemsSlots[1].getItem();
-            ammoCounters[0].typeSwitch(activeUnit.mainWeapon.magazine);
+            ammoCounters[0].typeSwitch(activeUnit.mainWeapon.magazine,activeUnit.mainWeapon.magazineSprite);
             ammoCounters[0].updateCounter(activeUnit);
         }
         else
@@ -177,7 +179,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0]);
+                skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0], new Vector2(1000, 1000));
             }
             if (playerUnits.Capacity - playersKilled < 1)
             {
@@ -198,7 +200,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 randomID = Random.Range(0, playerUnits.Capacity - playersKilled);
-                skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0]);
+                skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0],new Vector2(1000,1000));
             }
             //Debug.Log(activeUnit.actionsLeft);
         }
@@ -288,6 +290,7 @@ public class BattleManager : MonoBehaviour
     public void skillTargeting(int skillID)
     {
         panel.SetActive(true);
+        selectedSkill = skillsButtons[skillID].GetComponent<skillTooltip>();
         for(int i=0;i<subPanels.Length;i++)
         {
             subPanels[i].SetActive(false);
@@ -306,6 +309,7 @@ public class BattleManager : MonoBehaviour
                             if (battlefieldCells[z].isOccupied)
                             {
                                 subPanels[y].SetActive(true);
+                                subPanels[y].GetComponent<TargetingPanel>().connectToTarget();
                             }
                         }
                     }
@@ -313,6 +317,20 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void damageEffect(string damage, Vector2 position)
+    {
+        damageText.transform.position = position;
+        damageText.gameObject.SetActive(true);
+        damageText.text = damage;
+        StartCoroutine(damageEffectHide());
+    }
+
+    public IEnumerator damageEffectHide()
+    {
+        yield return new WaitForSeconds(1);
+        damageText.gameObject.SetActive(false);
     }
 
     public void passmove()

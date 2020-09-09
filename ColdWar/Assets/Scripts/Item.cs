@@ -28,4 +28,5 @@ public class Item : ScriptableObject
     public int weaponAccuracyBonus;
     public ammoType ammo;
     public magazineType magazine;
+    public Sprite magazineSprite;
 }

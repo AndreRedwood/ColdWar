@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum skillType {attack, selfBuff};
+public enum skillType {attack, attackRow, selfBuff};
 [System.Serializable]
 public class Skill
 {

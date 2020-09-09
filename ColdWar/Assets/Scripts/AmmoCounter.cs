@@ -10,6 +10,7 @@ public class AmmoCounter : MonoBehaviour
     public Image image;
 
     public TextMeshProUGUI magazinesLeft;
+    public Image magazinesLeftImage;
 
     public magazineType magazineType;
     public string slot;
@@ -17,9 +18,10 @@ public class AmmoCounter : MonoBehaviour
     public Sprite[] _3x4_StickSprites;
     public Sprite[] _3_ClipSprites;
 
-    public void typeSwitch(magazineType newType)
+    public void typeSwitch(magazineType newType, Sprite magazineSprite)
     {
         magazineType = newType;
+        magazinesLeftImage.sprite = magazineSprite;
     }
 
     public void updateCounter(Unit activeUnit)

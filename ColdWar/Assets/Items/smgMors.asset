@@ -25,3 +25,5 @@ MonoBehaviour:
   neededSkill: 0
   weaponAccuracyBonus: 0
   ammo: 0
+  magazine: 0
+  magazineSprite: {fileID: 21300000, guid: 4d36ee317799f624b8c79786f85887ff, type: 3}
