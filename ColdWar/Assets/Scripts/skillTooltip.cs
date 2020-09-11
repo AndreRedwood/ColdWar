@@ -135,6 +135,9 @@ public class skillTooltip : MonoBehaviour
         battleManager.actionBipsControl();
     }
 
+	public GameObject damageIndPrefab;
+	public GameObject UIPanel;
+
     public void attackSkill(Unit user ,Unit target, Skill skillUsed, Vector2 position)
     {
 
@@ -163,14 +166,20 @@ public class skillTooltip : MonoBehaviour
         target.HP -= (int)damageDealed;
         if(damageDealed == 0)
         {
-            //Debug.Log("MISS!");
-            battleManager.damageEffect("MISS!", position);
-        }
+			//Debug.Log("MISS!");
+			//battleManager.damageEffect("MISS!", position);
+			GameObject tmpDamPop = Instantiate(damageIndPrefab, new Vector3 (position.x, position.y + 50), Quaternion.identity);
+			tmpDamPop.GetComponent<DamageIndicatorScript>().label.text = "MISS!";
+			tmpDamPop.transform.SetParent(UIPanel.transform);
+		}
         else
         {
             //Debug.Log(damageDealed);
-            battleManager.damageEffect(damageDealed.ToString(), position);
-        }
+            //battleManager.damageEffect(damageDealed.ToString(), position);
+			GameObject tmpDamPop = Instantiate(damageIndPrefab, position, Quaternion.identity);
+			tmpDamPop.GetComponent<DamageIndicatorScript>().label.text = damageDealed.ToString();
+			tmpDamPop.transform.SetParent(UIPanel.transform);
+		}
         battleManager.ammoCounters[0].updateCounter(battleManager.activeUnit);
         battleManager.killCheck(target);
         //Debug.Log(user.mainWeaponAmmo);

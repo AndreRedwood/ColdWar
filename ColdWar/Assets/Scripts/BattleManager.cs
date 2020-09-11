@@ -46,9 +46,14 @@ public class BattleManager : MonoBehaviour
 
     void unitsPositioning()
     {
+        for (int i = 0; i < battlefieldCells.Length; i++)
+        {
+            battlefieldCells[i].isOccupied = false;
+        }
+
         for (int i = 0; i < engagedUnits.Count; i++)
         {
-            for (int y = 0; y < battlefieldCells.Length; y++)
+			for (int y = 0; y < battlefieldCells.Length; y++)
             {
                 if (engagedUnits[i].position == battlefieldCells[y].position)
                 {
@@ -180,6 +185,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0], new Vector2(1000, 1000));
+                comsumeActionPoints(2);
             }
             if (playerUnits.Capacity - playersKilled < 1)
             {
@@ -201,6 +207,7 @@ public class BattleManager : MonoBehaviour
             {
                 randomID = Random.Range(0, playerUnits.Capacity - playersKilled);
                 skillsButtons[0].GetComponent<skillTooltip>().attackSkill(activeUnit, playerUnits[randomID], activeUnit.skills[0],new Vector2(1000,1000));
+                comsumeActionPoints(2);
             }
             //Debug.Log(activeUnit.actionsLeft);
         }
