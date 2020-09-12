@@ -14,7 +14,7 @@ public class skillTooltip : MonoBehaviour
     public TextMeshProUGUI skillAmmoCostPlace;
     public GameObject[] actionBips;
 
-
+	public bool hasAmmo = true;
 
     public float time;
     public Skill skillHeld;
@@ -124,15 +124,21 @@ public class skillTooltip : MonoBehaviour
             return;
         }
 
+		hasAmmo = true;
+
         switch (skillHeld.type)
         {
             case skillType.attack: attackSkill(user, target, skillHeld, panel.transform.position); break;
             case skillType.attackRow: attackRowSkill(user, target, skillHeld, panel.transform.position); break;
         }
-        
-        //Debug.Log(skillHeld.actionCost);
-        battleManager.comsumeActionPoints(skillHeld.actionCost);
-        battleManager.actionBipsControl();
+
+		//Debug.Log(skillHeld.actionCost);
+		if (hasAmmo)
+		{
+			battleManager.comsumeActionPoints(skillHeld.actionCost);
+			battleManager.actionBipsControl();
+		}
+		battleManager.panel.SetActive(false);
     }
 
 	public GameObject damageIndPrefab;
@@ -150,6 +156,7 @@ public class skillTooltip : MonoBehaviour
         if (user.mainWeaponAmmo < attacksCount)
         {
             Debug.Log("Lack of ammunition!");
+			hasAmmo = false;
             return;
         }
 
@@ -176,7 +183,7 @@ public class skillTooltip : MonoBehaviour
         {
             //Debug.Log(damageDealed);
             //battleManager.damageEffect(damageDealed.ToString(), position);
-			GameObject tmpDamPop = Instantiate(damageIndPrefab, position, Quaternion.identity);
+			GameObject tmpDamPop = Instantiate(damageIndPrefab, new Vector3(position.x, position.y + 50), Quaternion.identity);
 			tmpDamPop.GetComponent<DamageIndicatorScript>().label.text = damageDealed.ToString();
 			tmpDamPop.transform.SetParent(UIPanel.transform);
 		}

@@ -40,11 +40,28 @@ ScriptsOnlyBuild:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera
+    - UnityEngine.Rendering.Universal.Bloom
+    - UnityEngine.Rendering.Universal.ChannelMixer
+    - UnityEngine.Rendering.Universal.ChromaticAberration
+    - UnityEngine.Rendering.Universal.ColorAdjustments
+    - UnityEngine.Rendering.Universal.ColorCurves
+    - UnityEngine.Rendering.Universal.ColorLookup
+    - UnityEngine.Rendering.Universal.DepthOfField
+    - UnityEngine.Rendering.Universal.FilmGrain
     - UnityEngine.Rendering.Universal.ForwardRendererData
+    - UnityEngine.Rendering.Universal.LensDistortion
+    - UnityEngine.Rendering.Universal.LiftGammaGain
+    - UnityEngine.Rendering.Universal.MotionBlur
+    - UnityEngine.Rendering.Universal.PaniniProjection
     - UnityEngine.Rendering.Universal.PostProcessData
+    - UnityEngine.Rendering.Universal.ShadowsMidtonesHighlights
+    - UnityEngine.Rendering.Universal.SplitToning
+    - UnityEngine.Rendering.Universal.Tonemapping
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources
+    - UnityEngine.Rendering.Universal.Vignette
+    - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -117,105 +134,105 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11340}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11624}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 11842}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 11870}
     - Class: 114
-      Script: {instanceID: 12326}
+      Script: {instanceID: 12016}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12372}
     - Class: 114
-      Script: {instanceID: 12554}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12556}
     - Class: 114
-      Script: {instanceID: 12614}
+      Script: {instanceID: 12602}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12616}
     - Class: 114
-      Script: {instanceID: 12882}
+      Script: {instanceID: 12668}
     - Class: 114
-      Script: {instanceID: 12928}
+      Script: {instanceID: 12884}
     - Class: 114
-      Script: {instanceID: 12990}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 13098}
+      Script: {instanceID: 12992}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13100}
     - Class: 114
-      Script: {instanceID: 13370}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13396}
+      Script: {instanceID: 13372}
     - Class: 114
-      Script: {instanceID: 13686}
+      Script: {instanceID: 13398}
     - Class: 114
-      Script: {instanceID: 13750}
+      Script: {instanceID: 13688}
     - Class: 114
-      Script: {instanceID: 13754}
+      Script: {instanceID: 13752}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13756}
     - Class: 114
-      Script: {instanceID: 13778}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13800}
+      Script: {instanceID: 13780}
     - Class: 114
-      Script: {instanceID: 13908}
+      Script: {instanceID: 13802}
     - Class: 114
-      Script: {instanceID: 13918}
+      Script: {instanceID: 13910}
     - Class: 114
-      Script: {instanceID: 13922}
+      Script: {instanceID: 13920}
     - Class: 114
-      Script: {instanceID: 13940}
+      Script: {instanceID: 13924}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13942}
     - Class: 114
-      Script: {instanceID: 14132}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14154}
+      Script: {instanceID: 14134}
     - Class: 114
-      Script: {instanceID: 14264}
+      Script: {instanceID: 14156}
     - Class: 114
-      Script: {instanceID: 14332}
+      Script: {instanceID: 14266}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14334}
     - Class: 114
-      Script: {instanceID: 14608}
+      Script: {instanceID: 14570}
     - Class: 114
-      Script: {instanceID: 14620}
+      Script: {instanceID: 14610}
     - Class: 114
-      Script: {instanceID: 14758}
+      Script: {instanceID: 14622}
     - Class: 114
-      Script: {instanceID: 14804}
+      Script: {instanceID: 14760}
     - Class: 114
-      Script: {instanceID: 14954}
+      Script: {instanceID: 14806}
     - Class: 114
-      Script: {instanceID: 14984}
+      Script: {instanceID: 14956}
     - Class: 114
-      Script: {instanceID: 15008}
+      Script: {instanceID: 14986}
     - Class: 114
       Script: {instanceID: 15010}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 15012}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 15186}
+      Script: {instanceID: 15066}
     - Class: 114
-      Script: {instanceID: 15194}
+      Script: {instanceID: 15188}
     - Class: 114
-      Script: {instanceID: 20390}
+      Script: {instanceID: 15196}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -321,6 +338,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 74a5fdff91df81319eedec0f56dd1567
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DamageIndicatorScript
   - hash:
       serializedVersion: 2
       Hash: b7d58df3c6d92c60e3611c0a808aa0dc
@@ -1185,13 +1208,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 74a5fdff91df81319eedec0f56dd1567
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DamageIndicatorScript
   platform: 19
   scenePathNames:
   - Assets/_Scenes/battleScene.unity
-  playerPath: C:/Users/user/Documents/ColdWarGit/hhhh/ColdWar.exe
+  playerPath: C:/Users/user/Documents/coldWarBuild/ColdWar.exe

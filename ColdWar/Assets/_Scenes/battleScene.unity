@@ -1259,6 +1259,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 369020a7a7daadf41914374ea8893c88, type: 3}
   - {fileID: 21300000, guid: 5a3e736fbc9a42d4b830a074e7e0f0b2, type: 3}
   - {fileID: 21300000, guid: 5d8cee9a71a4044468e829bd083a85e3, type: 3}
+  _4x4_DrumSprites:
+  - {fileID: 21300000, guid: 0561b5a1cd74b2244a9b3bfe01b0a874, type: 3}
+  - {fileID: 21300000, guid: 9d89de995912d754fbb19c721e0a9944, type: 3}
+  - {fileID: 21300000, guid: 107d9cfea3dce0249af594c2595ef025, type: 3}
+  - {fileID: 21300000, guid: 71aff2cd9986c4a4890d85d91b6d1f4a, type: 3}
+  - {fileID: 21300000, guid: 838487ca61691d7418b6960b9776749a, type: 3}
   _3_ClipSprites:
   - {fileID: 21300000, guid: 2229a0922e07da04e816165fa97d0a33, type: 3}
   - {fileID: 21300000, guid: eada12cdfe886e24588ebb900fc384d3, type: 3}
@@ -2510,8 +2516,8 @@ MonoBehaviour:
   evasion: 13
   accuracy: 0
   armor: {fileID: 11400000, guid: 3b7334da8ef198e44bea2e0f34671749, type: 2}
-  mainWeapon: {fileID: 11400000, guid: 74a10d75d71c64d419904516857fc4e9, type: 2}
-  mainWeaponAmmo: 12
+  mainWeapon: {fileID: 11400000, guid: ba6ca1559a620624fa84fc8fba0ff82f, type: 2}
+  mainWeaponAmmo: 16
   mainWeaponMagazines: 99
   secondaryWeapon: {fileID: 0}
   secondayWeaponAmmo: 0
@@ -3047,7 +3053,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 3.6843e-41, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4952,8 +4958,8 @@ MonoBehaviour:
   evasion: 13
   accuracy: 3
   armor: {fileID: 11400000, guid: 12c7ad5fdbf5dd14abb3f8e61747dc0c, type: 2}
-  mainWeapon: {fileID: 11400000, guid: 74a10d75d71c64d419904516857fc4e9, type: 2}
-  mainWeaponAmmo: 12
+  mainWeapon: {fileID: 11400000, guid: ba6ca1559a620624fa84fc8fba0ff82f, type: 2}
+  mainWeaponAmmo: 16
   mainWeaponMagazines: 99
   secondaryWeapon: {fileID: 0}
   secondayWeaponAmmo: 0
@@ -5132,6 +5138,7 @@ MonoBehaviour:
   - {fileID: 1366699048}
   - {fileID: 1200787051}
   - {fileID: 2068088265}
+  hasAmmo: 1
   time: 2
   skillHeld:
     name: 
@@ -6617,7 +6624,7 @@ GameObject:
   - component: {fileID: 1263126133}
   - component: {fileID: 1263126132}
   m_Layer: 5
-  m_Name: gagazinesImage
+  m_Name: magazinesImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6742,6 +6749,7 @@ MonoBehaviour:
   - {fileID: 1366699048}
   - {fileID: 1200787051}
   - {fileID: 2068088265}
+  hasAmmo: 1
   time: 2
   skillHeld:
     name: 
@@ -8045,6 +8053,7 @@ MonoBehaviour:
   - {fileID: 1366699048}
   - {fileID: 1200787051}
   - {fileID: 2068088265}
+  hasAmmo: 1
   time: 2
   skillHeld:
     name: 
@@ -9320,8 +9329,8 @@ MonoBehaviour:
   evasion: 13
   accuracy: 0
   armor: {fileID: 11400000, guid: 3b7334da8ef198e44bea2e0f34671749, type: 2}
-  mainWeapon: {fileID: 11400000, guid: 74a10d75d71c64d419904516857fc4e9, type: 2}
-  mainWeaponAmmo: 12
+  mainWeapon: {fileID: 11400000, guid: ba6ca1559a620624fa84fc8fba0ff82f, type: 2}
+  mainWeaponAmmo: 16
   mainWeaponMagazines: 99
   secondaryWeapon: {fileID: 0}
   secondayWeaponAmmo: 0
@@ -9936,6 +9945,7 @@ MonoBehaviour:
   winPanel: {fileID: 1871549188}
   activeIniciative: {fileID: 2147257590}
   activeHP: {fileID: 348841494}
+  tmpList: []
 --- !u!1 &2068088265
 GameObject:
   m_ObjectHideFlags: 0

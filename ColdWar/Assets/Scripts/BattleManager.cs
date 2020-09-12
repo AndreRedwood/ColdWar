@@ -355,8 +355,11 @@ public class BattleManager : MonoBehaviour
             comsumeActionPoints(1);
         }
     }
-    
-    public void killCheck(Unit target)
+
+
+	public List<Unit> tmpList = new List<Unit>();
+
+	public void killCheck(Unit target)
     {
         if (target.HP < 1)
         {
@@ -370,7 +373,57 @@ public class BattleManager : MonoBehaviour
             {
                 enemyKilled++;
             }
-        }
+			for(int i = 0; i < engagedUnits.Capacity; i ++)
+			{
+				tmpList.Add(engagedUnits[i]);
+			}
+			engagedUnits.Clear();
+			while (tmpList.Capacity > 1)
+			{
+				tmpList = tmpList.OrderByDescending(w => w.initiative).ToList();
+				if (!tmpList[0].isDead)
+				{
+					engagedUnits.Add(tmpList[0]);
+				}
+				else if (!tmpList[0].isAIControlled)
+				{
+					//DestroyImmediate(engagedUnitsActivated[0].gameObject);
+
+					playersKilled--;
+				}
+				else
+				{
+					//DestroyImmediate(engagedUnitsActivated[0].gameObject);
+				}
+				tmpList.Remove(tmpList[0]);
+			}
+
+			tmpList.Clear();
+			for (int i = 0; i < engagedUnitsWaiting.Capacity - 1; i++)
+			{
+				tmpList.Add(engagedUnitsWaiting[i]);
+			}
+			engagedUnitsWaiting.Clear();
+			while (tmpList.Capacity > 1)
+			{
+				tmpList = tmpList.OrderByDescending(w => w.initiative).ToList();
+				if (!tmpList[0].isDead)
+				{
+					engagedUnitsWaiting.Add(tmpList[0]);
+				}
+				else if (!tmpList[0].isAIControlled)
+				{
+					//DestroyImmediate(engagedUnitsActivated[0].gameObject);
+
+					playersKilled--;
+				}
+				else
+				{
+					//DestroyImmediate(engagedUnitsActivated[0].gameObject);
+				}
+				tmpList.Remove(tmpList[0]);
+			}
+		}
     }
 
     public void comsumeActionPoints(int amount)

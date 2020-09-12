@@ -14,8 +14,9 @@ public class TargetingPanel : MonoBehaviour
 
     public void connectToTarget()
     {
-        for (int i = 0; i < battleManager.engagedUnits.Capacity; i++)
+        for (int i = 0; i < battleManager.engagedUnits.Capacity - (battleManager.enemyKilled); i++)
         {
+			Debug.Log("+"+battleManager.engagedUnits.Capacity+"+");
             //Debug.Log("ichi");
             if (battleManager.engagedUnits[i].position.Equals(position))
             {
