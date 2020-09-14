@@ -7,6 +7,8 @@ using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
+	public GeneralGameManager generalGameManager;
+
     public static BattleManager instance;
     void Awake()
     {
@@ -259,7 +261,9 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        refreshLists();
+		generalGameManager = GameObject.Find("GeneralManager").GetComponent<GeneralGameManager>();
+		generalGameManager.initializeBattle(this);
+		refreshLists();
         engagedUnits = engagedUnits.OrderByDescending(w => w.initiative).ToList();
         if (playerUnits.Capacity < 1)
         {
