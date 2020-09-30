@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum ammoType {_9x19_Parabellum, _7q62x54_R, _7q62x25_Tokarev};
 public enum itemType {armor, mainWeapon};
-public enum weaponType {SMG, RF};
+public enum weaponType {SMG, RF, HG};
 [CreateAssetMenu(fileName = "Item", menuName = "Objects/NewItem", order = 1)]
 public class Item : ScriptableObject
 {
