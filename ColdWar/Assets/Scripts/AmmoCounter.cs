@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum magazineType {_3x4_Stick, _3_Clip, _4x4_Drum };
 public class AmmoCounter : MonoBehaviour
 {
     public Image image;
@@ -34,21 +33,21 @@ public class AmmoCounter : MonoBehaviour
 			case magazineType._4x4_Drum: _4x4_DrumShow(activeUnit); break;
 
 		}
-        magazinesLeft.text = activeUnit.mainWeaponMagazines.ToString();
+        //magazinesLeft.text = activeUnit.mainWeaponMagazines.ToString();
     }
 
     void _3x4_StickShow(Unit unit)
     {
         if (slot == "main")
         {
-            switch (unit.mainWeaponAmmo)
-            {
-                case 12: image.sprite = _3x4_StickSprites[4]; break;
-                case 9: image.sprite = _3x4_StickSprites[3]; break;
-                case 6: image.sprite = _3x4_StickSprites[2]; break;
-                case 3: image.sprite = _3x4_StickSprites[1]; break;
-                case 0: image.sprite = _3x4_StickSprites[0]; break;
-            }
+            //switch (unit.mainWeaponAmmo)
+            //{
+            //    case 12: image.sprite = _3x4_StickSprites[4]; break;
+            //    case 9: image.sprite = _3x4_StickSprites[3]; break;
+            //    case 6: image.sprite = _3x4_StickSprites[2]; break;
+            //    case 3: image.sprite = _3x4_StickSprites[1]; break;
+            //    case 0: image.sprite = _3x4_StickSprites[0]; break;
+            //}
         }
     }
 
@@ -56,14 +55,14 @@ public class AmmoCounter : MonoBehaviour
 	{
 		if (slot == "main")
 		{
-			switch (unit.mainWeaponAmmo)
-			{
-				case 16: image.sprite = _4x4_DrumSprites[4]; break;
-				case 12: image.sprite = _4x4_DrumSprites[3]; break;
-				case 8: image.sprite = _4x4_DrumSprites[2]; break;
-				case 4: image.sprite = _4x4_DrumSprites[1]; break;
-				case 0: image.sprite = _4x4_DrumSprites[0]; break;
-			}
+			//switch (unit.mainWeaponAmmo)
+			//{
+			//	case 16: image.sprite = _4x4_DrumSprites[4]; break;
+			//	case 12: image.sprite = _4x4_DrumSprites[3]; break;
+			//	case 8: image.sprite = _4x4_DrumSprites[2]; break;
+			//	case 4: image.sprite = _4x4_DrumSprites[1]; break;
+			//	case 0: image.sprite = _4x4_DrumSprites[0]; break;
+			//}
 		}
 	}
 
@@ -71,13 +70,13 @@ public class AmmoCounter : MonoBehaviour
     {
         if (slot == "main")
         {
-            switch (unit.mainWeaponAmmo)
-            {
-                case 3: image.sprite = _3_ClipSprites[3]; break;
-                case 2: image.sprite = _3_ClipSprites[2]; break;
-                case 1: image.sprite = _3_ClipSprites[1]; break;
-                case 0: image.sprite = _3_ClipSprites[0]; break;
-            }
+            //switch (unit.mainWeaponAmmo)
+            //{
+            //    case 3: image.sprite = _3_ClipSprites[3]; break;
+            //    case 2: image.sprite = _3_ClipSprites[2]; break;
+            //    case 1: image.sprite = _3_ClipSprites[1]; break;
+            //    case 0: image.sprite = _3_ClipSprites[0]; break;
+            //}
         }
     }
 

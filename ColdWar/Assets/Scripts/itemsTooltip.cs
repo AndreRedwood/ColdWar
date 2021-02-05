@@ -21,9 +21,9 @@ public class itemsTooltip : MonoBehaviour
         this.gameObject.SetActive(true);
         switch (whatItem)
         {
-            case "armor": itemHeld = BattleManager.instance.activeUnit.armor; image.sprite = itemHeld.sprite; break;
-            case "mainWeapon": itemHeld = BattleManager.instance.activeUnit.mainWeapon; image.sprite = itemHeld.sprite; break;
-            case "secondaryWeapon": itemHeld = BattleManager.instance.activeUnit.secondaryWeapon; image.sprite = itemHeld.sprite; break;
+            //case "armor": itemHeld = BattleManager.instance.activeUnit.armor; image.sprite = itemHeld.sprite; break;
+            //case "mainWeapon": itemHeld = BattleManager.instance.activeUnit.mainWeapon; image.sprite = itemHeld.sprite; break;
+            //case "secondaryWeapon": itemHeld = BattleManager.instance.activeUnit.secondaryWeapon; image.sprite = itemHeld.sprite; break;
         }
     }
 

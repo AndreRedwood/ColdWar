@@ -387,6 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110631417}
   - component: {fileID: 110631416}
+  - component: {fileID: 110631418}
   m_Layer: 0
   m_Name: GeneralManager
   m_TagString: Untagged
@@ -408,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuManager: {fileID: 0}
   battleManager: {fileID: 0}
+  resourceManager: {fileID: 110631418}
 --- !u!4 &110631417
 Transform:
   m_ObjectHideFlags: 0
@@ -422,6 +424,231 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110631418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110631415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b20512166667f94ea42565a5e190581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squadsFormed: 2
+  playerSquads:
+  - squadName: Squad'Alpha'
+    members:
+    - name: Skirmisher
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 11400000, guid: 4f6520209553f3a4f9ef2c320d419186, type: 2}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 1
+      unitSprite: {fileID: 0}
+    - name: Skirmisher
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 1
+      unitSprite: {fileID: 0}
+    - name: Scout
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 1
+      unitSprite: {fileID: 0}
+    squadMagazines: []
+  - squadName: Squad'Beta'
+    members:
+    - name: Hajduk
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 0
+      unitSprite: {fileID: 0}
+    - name: Hajduk
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 0
+      unitSprite: {fileID: 0}
+    squadMagazines: []
+  enemyGroups:
+  - squadName: group1
+    members:
+    - name: strelec
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 1
+      unitSprite: {fileID: 0}
+    - name: brute
+      portraiat: {fileID: 0}
+      squadID: 0
+      status: 0
+      unitClass: {fileID: 0}
+      initiative: 0
+      maxHP: 0
+      evasion: 0
+      accuracy: 0
+      armor:
+        baseArmor: {fileID: 0}
+      mainWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      secondaryWeapon:
+        weaponAmmo: 0
+        baseWeapon: {fileID: 0}
+      magazines: []
+      skills: []
+      position: {x: 0, y: 0}
+      actionsLeft: 0
+      HP: 0
+      actualInitiative: 0
+      moveDone: 1
+      unitSprite: {fileID: 0}
+    squadMagazines: []
+  allUnits:
+  - name: 
+    portraiat: {fileID: 0}
+    squadID: 0
+    status: 0
+    unitClass: {fileID: 0}
+    initiative: 0
+    maxHP: 0
+    evasion: 0
+    accuracy: 0
+    armor:
+      baseArmor: {fileID: 0}
+    mainWeapon:
+      weaponAmmo: 0
+      baseWeapon: {fileID: 0}
+    secondaryWeapon:
+      weaponAmmo: 0
+      baseWeapon: {fileID: 0}
+    magazines: []
+    skills: []
+    position: {x: 0, y: 0}
+    actionsLeft: 0
+    HP: 0
+    actualInitiative: 0
+    moveDone: 0
+    unitSprite: {fileID: 0}
 --- !u!1 &422997520
 GameObject:
   m_ObjectHideFlags: 0
