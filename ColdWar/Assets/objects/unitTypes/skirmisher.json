@@ -1,0 +1,12 @@
+{
+	"name":"_skirmisher",
+	"description":"_skirmisher_descr",
+	"permittedWeaponTypes":[0],
+	"baseSprite":{"instanceID":0},
+	"baseStats":
+	{
+		"baseHealth":12,
+		"baseEvasion":8,
+		"baseAaccuracy":6
+	}
+}
