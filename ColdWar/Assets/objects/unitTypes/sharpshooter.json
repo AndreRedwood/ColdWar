@@ -1,0 +1,12 @@
+{
+	"name":"_sharpshooter",
+	"description":"_sharpshooter_descr",
+	"permittedWeaponTypes":[1],
+	"baseSprite":{"instanceID":0},
+	"baseStats":
+	{
+		"baseHealth":7,
+		"baseEvasion":6,
+		"baseAaccuracy":12
+	}
+}

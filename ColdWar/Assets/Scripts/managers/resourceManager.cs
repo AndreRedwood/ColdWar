@@ -12,16 +12,25 @@ public enum WeaponType
 public class ResourceManager : MonoBehaviour
 {
 	private static string path = "Assets/Objects/";
-	
-	[SerializeField]
-	TextLocaliser unitTypeNameDisplay;
+
+	[HideInInspector]
+	public IdGiver idGiver = new IdGiver();
 
 	[SerializeField]
-	List<UnitType> unitTypes = new List<UnitType>();
-
+	private List<UnitType> unitTypes = new List<UnitType>();
+	public List<UnitType> UnitTypes
+	{
+		get { return unitTypes; }
+		set { unitTypes = value; }
+	}
 
 	[SerializeField]
-	List<Unit> allUnits = new List<Unit>();
+	private List<Unit> allUnits = new List<Unit>();
+	public List<Unit> AllUnits
+	{
+		get { return allUnits; }
+		set { allUnits = value; }
+	}
 
 	private bool isInit = false;
 
@@ -34,6 +43,7 @@ public class ResourceManager : MonoBehaviour
 			json = File.ReadAllText(typeJson);
 			unitTypes.Add(JsonUtility.FromJson<UnitType>(json));
 		}
+		unitTypes.TrimExcess();
 
 		isInit = true;
     }
@@ -49,9 +59,13 @@ public class ResourceManager : MonoBehaviour
 	public void Start()
 	{
 		Init();
+		Debug.Log(idGiver.giveId());
+		Debug.Log(idGiver.giveId());
+		Debug.Log(idGiver.giveId());
+		Debug.Log(idGiver.giveId());
+		Debug.Log(idGiver.giveId());
 		//generateUnitTypeTemplate();
 		string[] names = { "janek", "tomek", "kuba", "artur", "sergiej", "bob" };
 		allUnits.Add(new Unit(names[Random.Range(0, 5)], unitTypes[0]));
-		unitTypeNameDisplay.setKey(unitTypes[0].Name);
 	}
 }

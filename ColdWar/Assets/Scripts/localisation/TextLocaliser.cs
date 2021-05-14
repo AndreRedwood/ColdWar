@@ -7,7 +7,13 @@ using UnityEngine;
 public class TextLocaliser : MonoBehaviour
 {
 	TextMeshProUGUI texField;
-	public string key;
+	[SerializeField]
+	private string key;
+	public string Key
+	{
+		get { return key; }
+		set { key = value; refresh(); }
+	}
 
 	private bool isInit = false;
 
@@ -30,10 +36,4 @@ public class TextLocaliser : MonoBehaviour
 		string value = LocalisationSystem.GetLocalisedValue(key);
 		texField.text = value;
     }
-
-	public void setKey(string newKey)
-	{
-		key = newKey;
-		refresh();
-	}
 }

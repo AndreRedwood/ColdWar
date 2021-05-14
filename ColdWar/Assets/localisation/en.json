@@ -1,6 +1,11 @@
 {"fields":[
 	{"key":"_lang","value":"English"},
+	{"key":"_input_name","value":"Enter name..."},
+	{"key":"_create","value":"Create"},
+	{"key":"_unit_name","value":"Unit Name"},
 	{"key":"_unit_type","value":"Unit Type"},
 	{"key":"_skirmisher","value":"Skirmisher"},
-	{"key":"_skirmisher_descr","value":"Skirmishers are blablabla..."}
+	{"key":"_skirmisher_descr","value":"Skirmishers are blahblahblah..."},
+	{"key":"_sharpshooter","value":"Sharpshooter"},
+	{"key":"_sharpshooter_descr","value":"Sharpshooters are blahblahblah..."}
 ]}
