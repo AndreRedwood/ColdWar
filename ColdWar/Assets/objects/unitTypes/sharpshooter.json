@@ -2,6 +2,7 @@
 	"name":"_sharpshooter",
 	"description":"_sharpshooter_descr",
 	"permittedWeaponTypes":[1],
+	"startingWeaponName":"_mors_smg",
 	"baseSprite":{"instanceID":0},
 	"baseStats":
 	{

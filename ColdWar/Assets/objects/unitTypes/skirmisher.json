@@ -2,6 +2,7 @@
 	"name":"_skirmisher",
 	"description":"_skirmisher_descr",
 	"permittedWeaponTypes":[0],
+	"startingWeaponName":"_mors_smg",
 	"baseSprite":{"instanceID":0},
 	"baseStats":
 	{

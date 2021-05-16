@@ -2410,6 +2410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitTypes: []
+  weaponTemplates: []
   allUnits: []
 --- !u!4 &1357374953
 Transform:
@@ -2446,6 +2447,7 @@ MonoBehaviour:
     name: 
     description: 
     permittedWeaponTypes: 
+    startingWeaponName: 
     baseSprite: {fileID: 0}
     baseStats:
       baseHealth: 0

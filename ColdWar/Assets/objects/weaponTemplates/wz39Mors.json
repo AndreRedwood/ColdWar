@@ -1,0 +1,12 @@
+{
+	"name":"_mors_smg",
+	"description":"_mors_smg_descr",
+	"sprite":{"instanceID":15546},
+	"weaponType":0,
+	"ammoType":0,
+	"magazineCapacity":25,
+	"magazineAmmo":0,
+	"burstCount":5,
+	"baseDamage":3,
+	"accuracyModifier":-15
+}

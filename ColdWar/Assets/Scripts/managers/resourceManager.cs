@@ -21,7 +21,12 @@ public class ResourceManager : MonoBehaviour
 	public List<UnitType> UnitTypes
 	{
 		get { return unitTypes; }
-		set { unitTypes = value; }
+	}
+	[SerializeField]
+	private List<Weapon> weaponTemplates = new List<Weapon>();
+	public List<Weapon> WeaponTemplates
+	{
+		get { return weaponTemplates; }
 	}
 
 	[SerializeField]
@@ -45,8 +50,29 @@ public class ResourceManager : MonoBehaviour
 		}
 		unitTypes.TrimExcess();
 
+		string[] weaponTemplatesJsons = Directory.GetFiles(path + "weaponTemplates/", "*.json");
+		foreach(string templateJson in weaponTemplatesJsons)
+		{
+			json = File.ReadAllText(templateJson);
+			weaponTemplates.Add(JsonUtility.FromJson<Weapon>(json));
+		}
+		weaponTemplates.TrimExcess();
+
 		isInit = true;
     }
+
+	public Weapon findWeaponByName(string name)
+	{
+		foreach(Weapon weapon in weaponTemplates)
+		{
+			if(name == weapon.Name)
+			{
+				return weapon;
+			}
+		}
+		Debug.LogError("error 404, missing value");
+		return null;
+	}
 
 	public void generateUnitTypeTemplate()
 	{
@@ -56,16 +82,20 @@ public class ResourceManager : MonoBehaviour
 		File.WriteAllText(path + "unitTypes/classTemplate.json",json);
 	}
 
+	public void generateWeaponTemplate()
+	{
+		string json;
+		weaponTemplates.Add(new Weapon());
+		json = JsonUtility.ToJson(weaponTemplates[0]);
+		File.WriteAllText(path + "weaponTemplates/weaponTemplate.json", json);
+	}
+
 	public void Start()
 	{
 		Init();
-		Debug.Log(idGiver.giveId());
-		Debug.Log(idGiver.giveId());
-		Debug.Log(idGiver.giveId());
-		Debug.Log(idGiver.giveId());
-		Debug.Log(idGiver.giveId());
+		//generateWeaponTemplate();
 		//generateUnitTypeTemplate();
 		string[] names = { "janek", "tomek", "kuba", "artur", "sergiej", "bob" };
-		allUnits.Add(new Unit(names[Random.Range(0, 5)], unitTypes[0]));
+		allUnits.Add(new Unit(names[Random.Range(0, 5)], unitTypes[0],this));
 	}
 }

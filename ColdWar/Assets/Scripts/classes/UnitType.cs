@@ -24,6 +24,12 @@ public class UnitType
 		get { return permittedWeaponTypes; }
 	}
 	[SerializeField]
+	private string startingWeaponName;
+	public string StartingWeaponName
+	{
+		get { return startingWeaponName; }
+	}
+	[SerializeField]
 	private Sprite baseSprite;
 
 	[SerializeField]

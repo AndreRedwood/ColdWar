@@ -69,7 +69,7 @@ public class UnitCreator : MonoBehaviour
 	public void createUnit()
 	{
 		if (!isInit) { Init(); }
-		resourceManager.AllUnits.Add(new Unit(temponaryName, temponaryType));
+		resourceManager.AllUnits.Add(new Unit(temponaryName, temponaryType, resourceManager));
 	}
 
 	void generateDropdown()

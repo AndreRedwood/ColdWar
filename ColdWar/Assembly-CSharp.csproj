@@ -96,9 +96,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\scripts\classes\Item.cs" />
     <Compile Include="Assets\scripts\classes\Unit.cs" />
     <Compile Include="Assets\scripts\classes\UnitStats.cs" />
     <Compile Include="Assets\scripts\classes\UnitType.cs" />
+    <Compile Include="Assets\scripts\classes\Weapon.cs" />
     <Compile Include="Assets\scripts\localisation\DictionaryField.cs" />
     <Compile Include="Assets\scripts\localisation\LocalisationSystem.cs" />
     <Compile Include="Assets\scripts\localisation\SerializableDictionary.cs" />
