@@ -13,9 +13,17 @@ public class ResourceManager : MonoBehaviour
 {
 	private static string path = "Assets/Objects/";
 
-	[HideInInspector]
-	public IdGiver idGiver = new IdGiver();
+	public BattleMap map;
 
+	[Header("spriteLists")]
+	[SerializeField]
+	private List<Sprite> battleBackgrounds = new List<Sprite>();
+	public List<Sprite> BattleBackgrounds
+	{
+		get { return battleBackgrounds; }
+	}
+
+	[Header("jsonTemplates")]
 	[SerializeField]
 	private List<UnitType> unitTypes = new List<UnitType>();
 	public List<UnitType> UnitTypes
@@ -29,6 +37,22 @@ public class ResourceManager : MonoBehaviour
 		get { return weaponTemplates; }
 	}
 
+	[SerializeField]
+	private List<BattleMapTemplate> battleMapTemplates = new List<BattleMapTemplate>();
+	public List<BattleMapTemplate> BattleMapTemplatesTemplates
+	{
+		get { return battleMapTemplates; }
+	}
+
+	[Header("objects")]
+	[SerializeField]
+	private List<TerrainFeature> terrainFeatures = new List<TerrainFeature>();
+	public List<TerrainFeature> TerrainFeutures
+	{
+		get { return terrainFeatures; }
+	}
+
+	[Header("gameInfo")]
 	[SerializeField]
 	private List<Unit> allUnits = new List<Unit>();
 	public List<Unit> AllUnits
@@ -61,6 +85,19 @@ public class ResourceManager : MonoBehaviour
 		isInit = true;
     }
 
+	public Sprite findBattleBackgroundSpriteByName(string name)
+	{
+		foreach(Sprite background in battleBackgrounds)
+		{
+			if(name == background.name)
+			{
+				return background;
+			}
+		}
+		Debug.LogError("error 404, missing value (battleBacground)");
+		return null;
+	}
+
 	public Weapon findWeaponByName(string name)
 	{
 		foreach(Weapon weapon in weaponTemplates)
@@ -70,7 +107,20 @@ public class ResourceManager : MonoBehaviour
 				return weapon;
 			}
 		}
-		Debug.LogError("error 404, missing value");
+		Debug.LogError("error 404, missing value (weapon template)");
+		return null;
+	}
+
+	public TerrainFeature findTerrainFeatureByName(string name)
+	{
+		foreach(TerrainFeature feature in terrainFeatures)
+		{
+			if(name == feature.Name)
+			{
+				return feature;
+			}
+		}
+		Debug.LogError("error 404, missing value (terrain feature)");
 		return null;
 	}
 
@@ -90,12 +140,23 @@ public class ResourceManager : MonoBehaviour
 		File.WriteAllText(path + "weaponTemplates/weaponTemplate.json", json);
 	}
 
+	public void generateBattleMapTemplate()
+	{
+		string json;
+		battleMapTemplates.Add(new BattleMapTemplate());
+		json = JsonUtility.ToJson(battleMapTemplates[0]);
+		File.WriteAllText(path + "battleMapTemplates/battleMapTemplate.json", json);
+	}
+
 	public void Start()
 	{
 		Init();
 		//generateWeaponTemplate();
 		//generateUnitTypeTemplate();
+		generateBattleMapTemplate();
+		map = new BattleMap(this, battleMapTemplates[0]);
 		string[] names = { "janek", "tomek", "kuba", "artur", "sergiej", "bob" };
 		allUnits.Add(new Unit(names[Random.Range(0, 5)], unitTypes[0],this));
+		//Debug.Log(map.Tiles[0,0]+"+"+ map.Tiles[0, 1] + "+"+ map.Tiles[0, 2]);
 	}
 }
